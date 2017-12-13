@@ -1,7 +1,7 @@
 package com.javarush.task.task12.task1203;
 
 /* 
-Кесарю — кесарево
+Кесарю —  кесарево
 */
 
 public class Solution {
