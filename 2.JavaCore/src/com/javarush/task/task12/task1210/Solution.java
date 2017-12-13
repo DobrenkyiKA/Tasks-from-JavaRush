@@ -13,10 +13,12 @@ public class Solution {
         if (i>j) return i;
         else return j;
     }
+
     public static long max(long i, long j) {
         if (i>j) return i;
         else return j;
     }
+
     public static double max(double i, double j) {
         if (i>j) return i;
         else return j;
