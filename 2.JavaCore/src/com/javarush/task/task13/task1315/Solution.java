@@ -25,7 +25,7 @@ public class Solution {
 
     public class Mouse implements Movable,Eatable{
         public void move(){}
-        public void eaten(){}
+        public void eaten() {}
     }
     public class Cat implements Movable,Eatable,Eat{
         public void move(){}
