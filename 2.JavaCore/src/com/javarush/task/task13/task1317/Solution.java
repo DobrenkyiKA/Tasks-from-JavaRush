@@ -25,7 +25,6 @@ public class Solution {
 
         @Override
         public String getWeatherType() {
-
             return type;
         }
     }
