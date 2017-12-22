@@ -11,34 +11,28 @@ public class Solution {
     public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Person person = null;
-        String key = reader.readLine();
+        String key = null;
 
-        while (key.equals("user") || key.equals("loser") || key.equals("proger") || key.equals("coder"))
-        {   switch (key) {
-            case "user": person = new Person.User();
-            break;
-            case "loser": person = new Person.Loser();
-            break;
-            case "proger": person = new Person.Proger();
-            break;
-            case "coder": person = new Person.Coder();
-            break;
-        }
+        while (true) {
+            key = reader.readLine();
+            if (key.equals("user")) person = new Person.User();
+            else if (key.equals("loser")) person = new Person.Loser();
+            else if (key.equals("coder")) person = new Person.Coder();
+            else if (key.equals("proger")) person = new Person.Proger();
+            else break;
+
             doWork(person);
-        key = reader.readLine();
         }
     }
 
     public static void doWork(Person person) {
-        switch (person.getClass().getSimpleName()) {
-            case "User": ((Person.User) person).live();
-            break;
-            case "Loser": ((Person.Loser) person).doNothing();
-            break;
-            case "Proger": ((Person.Proger) person).enjoy();
-            break;
-            case "Coder": ((Person.Coder) person).coding();
-            break;
-        }
+        if (person instanceof Person.User)
+            ((Person.User) person).live();
+        else if (person instanceof Person.Loser)
+            ((Person.Loser) person).doNothing();
+        else if (person instanceof Person.Coder)
+            ((Person.Coder) person).coding();
+        else if (person instanceof Person.Proger)
+            ((Person.Proger) person).enjoy();
     }
 }
