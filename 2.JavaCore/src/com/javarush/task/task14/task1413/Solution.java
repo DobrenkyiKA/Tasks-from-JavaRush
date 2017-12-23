@@ -7,9 +7,7 @@ Computer
 public class Solution {
     public static void main(String[] args) {
         Computer computer = new Computer(new Keyboard(), new Mouse(), new Monitor());
-        if (isWork(computer.getKeyboard()) &&
-                isWork(computer.getMonitor()) &&
-                isWork(computer.getMouse())) {
+        if (isWork(computer.getKeyboard()) && isWork(computer.getMonitor()) && isWork(computer.getMouse())) {
             System.out.println("Work!");
         }
     }
