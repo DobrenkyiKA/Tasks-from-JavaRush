@@ -22,22 +22,40 @@ public class Solution {
             this.author = author;
         }
 
-        public abstract Book getBook();
+        abstract public Book getBook();
 
-        public abstract String getTitle();
+        abstract public String getTitle();
 
         private String getOutputByBookType() {
             String agathaChristieOutput = author + ", " + getBook().getTitle() + " is a detective";
             String markTwainOutput = getBook().getTitle() + " book was written by " + author;
 
             String output = "output";
-            //Add your code here
-
+            if (this instanceof MarkTwainBook) output = markTwainOutput ;
+            if (this instanceof AgathaChristieBook) output = agathaChristieOutput ;
             return output;
         }
-
-        public String toString() {
-            return getOutputByBookType();
-        }
+        public String toString() {return getOutputByBookType();}
     }
+    public static class MarkTwainBook extends Book {
+        String title;
+        public MarkTwainBook(String nameBook) {
+            super("Mark Twain");
+            this.title = nameBook;
+        }
+
+        public MarkTwainBook getBook() {return this;}
+        public String getTitle() {return title;}
+    }
+    public static class AgathaChristieBook extends Book {
+        String title;
+        public AgathaChristieBook(String nameBook) {
+            super("Agatha Christie");
+            title = nameBook;
+        }
+
+        public AgathaChristieBook getBook() {return this;}
+        public String getTitle() {return title;}
+    }
+
 }
