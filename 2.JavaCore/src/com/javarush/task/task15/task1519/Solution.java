@@ -10,12 +10,38 @@ import java.io.IOException;
 
 public class Solution {
     public static void main(String[] args) throws IOException {
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            String string;
+            while(!(string = reader.readLine()).equals("exit")) {
+                if (string.contains(".")) {
+                    try {
+                        print(Double.parseDouble(string));
+                    } catch (NumberFormatException e) {
+                        try {
+                            if (Integer.parseInt(string) > 0 && Integer.parseInt(string) < 128) {
+                                print(Short.parseShort(string));
+                            } else print(Integer.parseInt(string));
+                        } catch (NumberFormatException r) {
+                        print(string);
+                    }
+                    }
 
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
-            do { reader.readLine();
-
-
+                }
+                else {
+                    try {
+                        if (Integer.parseInt(string) > 0 && Integer.parseInt(string) < 128) {
+                            print(Short.parseShort(string));
+                        } else print(Integer.parseInt(string));
+                    } catch (NumberFormatException e) {
+                        print(string);
+                    }
+                }
+            }
         }
+        catch(IOException e) {
+                    System.out.println("fuf fuf");
+        }
+
     }
 
     public static void print(Double value) {
