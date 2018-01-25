@@ -1,8 +1,9 @@
 *.iml
-idea/*
 *.properties
 *.info
-out/*
 *.xml
 *.txt
 *.log
+out.log
+.out/
+.idea/
