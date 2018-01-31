@@ -1,8 +1,7 @@
 package com.javarush.task.task32.task3207;
 
-import java.rmi.AlreadyBoundException;
-import java.rmi.Remote;
-import java.rmi.RemoteException;
+import java.net.MalformedURLException;
+import java.rmi.*;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
@@ -18,7 +17,16 @@ public class Solution {
     public static Thread CLIENT_THREAD = new Thread(new Runnable() {
         @Override
         public void run() {
-            //напишите тут ваш код
+            try {
+                //service = registry.lookup(UNIC_BINDING_NAME);//напишите тут ваш код
+                DoubleString doubleString = (DoubleString) registry.lookup(UNIC_BINDING_NAME);
+                System.out.println(doubleString.doubleString("dsfsf"));
+
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            } catch (NotBoundException e) {
+                e.printStackTrace();
+            }
         }
     });
 
