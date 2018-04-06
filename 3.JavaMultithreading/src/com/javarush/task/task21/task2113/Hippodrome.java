@@ -6,7 +6,7 @@ import java.util.List;
 public class Hippodrome {
     private List<Horse> horses;
     static Hippodrome game;
-String
+
     public Horse getWinner(){
         int dist = 0;
         Horse nameWinner = null;
